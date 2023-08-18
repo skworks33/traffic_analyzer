@@ -45,7 +45,7 @@ python3 traffic_analyzer.py
 
 You can schedule the script to run at regular intervals using cron. For example, to run the script every 30 minutes:
 
-bash```
+```bash
 */30 * * * * /usr/bin/python3 /path/to/your/traffic_analyzer.py
 ```
 
