@@ -27,8 +27,9 @@ with open('travel_time.csv', mode='a', newline='') as file:
     # 所要時間を取得
     directions_result = gmaps.directions(origin,
                                          destination,
-                                         mode="driving",
-                                         departure_time=now
+                                         mode="driving", # 車の場合の所要時間
+                                         departure_time=now, # 現在時刻から出発
+                                         avoid="tolls|highways|ferries", # 有料・高速・フェリーを避ける
                                         )
 
     # 所要時間を取得

@@ -1,62 +1,51 @@
-# sv_story_gpt
+# Traffic Analyzer
 
-This is a simple Python script that selects a random phrase from a text file, asks ChatGPT to generate an interesting story based on the selected phrase, and then posts the story to a Slack channel.
+Traffic Analyzer is a Python script that uses the Google Maps Directions API to fetch the travel time between two specified locations (origin and destination). It saves the travel time along with the timestamp in a CSV file at regular intervals, allowing for analysis of traffic patterns.
+
+## Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/skworks33/traffic-analyzer.git
+```
+
 
 ## Requirements
 
 - Python 3.x
-- `openai` Python package
-- `slack-sdk` Python package
-- `requests` Python package
 
 ## Installation
 
 1. Install the required Python packages:
 
 ```sh
-pip install openai slack-sdk requests
+pip install -U googlemaps
 ```
 
-2. Clone this repository:
+2. Set the environment variables:
+
 
 ```
-git clone 
-cd 
+export GMAP_API_KEY="your_google_maps_api_key"
+export ORIGIN="your_origin_location"
+export DESTINATION="your_destination_location"
 ```
-
-## Configuration
-
-1. 
-
-```
-export 
-export
-/path/to/python3 /path/to/traffic_analyzer/traffic_analyzer.py
-```
-
-2. Make sure the run_script.sh file is executable:
-
-```
-chmod +x run_script.sh
-```
-
-3. Update the sv.txt file with your desired list of phrases, one per line.
 
 ## Usage
 
-1. Run the run_script.sh script:
+Run the script using Python 3:
 
 ```
-./run_script.sh
+python3 traffic_analyzer.py
 ```
 
-## Schedule Daily Execution
 
-To schedule the script to run daily at 10 AM JST, add the following line to your crontab:
+## Scheduling
 
+You can schedule the script to run at regular intervals using cron. For example, to run the script every 30 minutes:
+
+bash```
+*/30 * * * * /usr/bin/python3 /path/to/your/traffic_analyzer.py
 ```
-0 10 * * * /path/to/run_script.sh > /path/to/output.log 2>&1
-```
-
-Make sure to replace /path/to/run_script.sh with the actual path to the run_script.sh file in your system.
 
